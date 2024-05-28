@@ -24,6 +24,7 @@ function App() {
       .then(async (res) => {
         const result = await res.json()
         // .then(setTodos(result.todos))
+        console.log(result)
         setTodos(result.todos)
 
       })

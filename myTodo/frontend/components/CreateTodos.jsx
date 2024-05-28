@@ -3,48 +3,46 @@
 import { useState } from "react"
 
 function CreateTodos() {
-  const [title,setTitle] = useState("")
+  const [title, setTitle] = useState("")
   const [description, setDecription] = useState("")
   return <div>
 
     <input type="text" placeholder="Title" style={{
       padding: 10,
       margin: 20
-    }} onChange={(val)=>{
+    }} onChange={(val) => {
       setTitle(val.target.value)
-    }}/><br />
+    }} /><br />
     <input type="text" placeholder="Description" style={{
       padding: 10,
       margin: 20
-    }} onChange={(val)=>{
+    }} onChange={(val) => {
       setDecription(val.target.value)
-    }}/> <br />
+    }} /> <br />
     <button style={{
       padding: 10,
       margin: 20
-    }} onClick={()=>{
-      console.log(title)
-      console.log(description)
+    }} onClick={() => {
       fetch("http://localhost:3000/todos", {
         method: "POST",
         body: JSON.stringify({
           title: title,
           description: description,
-          
+
         }),
         headers: {
           "Content-Type": "application/json"
         }
       }
       ).then(res => {
-         res.json().then(()=>{
+        res.json().then(() => {
           alert("Todo Added")
-         })
-          
-        
+        })
+
+
       })
     }}>
-    Add Todo</button>
+      Add Todo</button>
 
   </div>
 }
