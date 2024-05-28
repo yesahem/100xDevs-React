@@ -35,11 +35,6 @@ function Todos({ myTodos }) {
             alert(err);
           }
         }
-
-
-
-
-
         return (
           <div>
 
