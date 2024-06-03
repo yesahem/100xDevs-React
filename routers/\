@@ -1,0 +1,24 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import { BrowserRouter, Route, Router } from 'react-router-dom'
+import { Landing } from '../components/Landing'
+import { Dashboard } from '../components/DashBoard'
+import { Home } from '../components/Home'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/DashBoard" element={<Dashboard />} />
+        <Route path="/Landing" element={<Landing />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
