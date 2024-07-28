@@ -1,20 +1,14 @@
-const express = require("express")
-const port = 3000;
-const app = express()
+const express = require("express");
 
-app.get('/', (req, res) => {
-  res.send("Server is running peacefully ")
-})
+const app = express();
+
+const router = require("./routes/index.js");
+const cors = require("cors");
+// const bodyParser = require("body-parser");
+app.use(express.json()); //express.json() is based on bodyParser.json() this mean that we can aldo proceed without downloading the body-parser
+app.use(cors());
+app.use("api/v1", router);
 
 app.listen(3000, () => {
-  console.log("Server is up")
-})
-
-app.get("/signin", (req, res) => {
-  res.send("SignIn Route")
-})
-
-
-app.get("/signup", (req, res) => {
-  res.send("SignUp Route")
-})
+  console.log("App listing on port 3000");
+});
