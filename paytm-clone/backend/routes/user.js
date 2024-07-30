@@ -2,14 +2,13 @@ const express = require("express");
 const userRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const zod = require("zod");
-import router from ".";
-import { JWT_SECRET } from "../config";
-import { Account, User } from "../db";
-import { authMiddleware } from "./middleware";
+const { JWT_SECRET } = require("../config");
+const { Account, User } = require("../db");
+const { authMiddleware } = require("./middleware");
 
 const inputValidation = zod.object({
   username: zod.string(),
-  password: zod.string().minLength(6),
+  password: zod.string().min(6),
   firstName: zod.string(),
   lastName: zod.string(),
 });
@@ -36,13 +35,10 @@ userRouter.post("/signup", async (req, res) => {
   const createUser = await User.create(body);
   const userID = createUser._id;
   // ------ Creating Account ---------
-  await Account.create(
-    {
-      userID,
-      balance: Math.floor(Math.random() * 10000 + 1),
-    },
-    options,
-  );
+  await Account.create({
+    userID,
+    balance: Math.floor(Math.random() * 10000 + 1),
+  });
   const token = jwt.sign(
     {
       username: req.body.username,
@@ -129,8 +125,8 @@ userRouter.get("/bulk", async (req, res) => {
   res.json({
     user: users.map((user) => {
       (username = user.username),
-        (firstname = user.firstname),
-        (lastname = user.lastname),
+        (firstname = user.firstName),
+        (lastname = user.lastName),
         (id = user._id);
     }),
   });

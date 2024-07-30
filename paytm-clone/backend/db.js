@@ -13,7 +13,6 @@ const userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   password: String,
-  isLoggedIn: Boolean,
 });
 
 const accountSchema = new mongoose.Schema({
@@ -29,8 +28,6 @@ const accountSchema = new mongoose.Schema({
 });
 const User = mongoose.model("Users", userSchema);
 const Account = mongoose.model("Account", accountSchema);
-console.log("Outside");
-console.log(User);
 
 module.exports = {
   User,
