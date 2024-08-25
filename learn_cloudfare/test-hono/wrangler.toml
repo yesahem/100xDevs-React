@@ -1,0 +1,24 @@
+name = "test-hono"
+compatibility_date = "2024-08-23"
+node_compat = true
+
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiYjdiNTlmYTQtOTdjZC00M2ExLWJlMzQtNjE4OWIwOTZkMzIyIiwidGVuYW50X2lkIjoiM2NlYzFmOTNmOTMyZjM5MDlmODE1MTc2OGNkYzQwYjQ0NTg5YjY2MjNhZjRlMDBiOWRlOWI3MGVlNmZlMmZkZSIsImludGVybmFsX3NlY3JldCI6IjlhMTU5NGQ3LWIyMTItNDIwYi04Mjc2LTk4OTZiM2MxY2ZhYyJ9.dhkoEN1xfQF7hqaLalGd0WqxRfjqOnOq_A8hXUYSkNs"
+
+# MY_VAR = "my-variable"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
+
+# [ai]
+# binding = "AI"
